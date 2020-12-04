@@ -8,7 +8,7 @@ services:
     volumes:
       - /data/db
     networks:
-      - shared-net
+      - my_network
   springboot-mongodb:
     image: springboot-mongodb:0.0.1-SNAPSHOT
     container_name: "springboot-mongodb"
@@ -19,7 +19,7 @@ services:
     links:
       - mymongodb
     networks:
-      - shared-net
+      - my_network
 networks:
-  shared-net:
-    driver: bridge
+  my_network:
+    driver: overlay
