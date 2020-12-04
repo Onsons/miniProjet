@@ -1,0 +1,25 @@
+version: "3"
+services:
+  mymongodb:
+    image: mongo:latest
+    container_name: "mymongodb"
+    ports:
+      - 27017:2701
+    volumes:
+      - /data/db
+    networks:
+      - shared-net
+  springboot-mongodb:
+    image: springboot-mongodb:0.0.1-SNAPSHOT
+    container_name: "springboot-mongodb"
+    ports:
+      - 8081:8081
+    deploy:
+      replicas: 3
+    links:
+      - mymongodb
+    networks:
+      - shared-net
+networks:
+  shared-net:
+    driver: bridge
