@@ -2,7 +2,7 @@
 Il s'agit d'un projet SpringBoot "Todo" contenant deux REST API
 pour lister et créer des Todos.
 
-###Travail demandé 
+### Travail demandé 
 
 
 On doit répondre à ses points : 
@@ -19,7 +19,7 @@ $ docker stack deploy -c myapp
 $ docker swarm init
 $ docker service ls
 ```
-###Execution
+### Execution
 
 
 ![home](exec.png)
