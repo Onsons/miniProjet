@@ -2,9 +2,8 @@ package com.todo.demo.repositories;
 
 import com.todo.demo.entities.Todo;
 import org.springframework.data.mongodb.repository.MongoRepository;
-import org.springframework.data.rest.core.annotation.RepositoryRestResource;
+import org.springframework.stereotype.Repository;
 
-
-@RepositoryRestResource
+@Repository
 public interface TodoRepository  extends MongoRepository<Todo, String> {
 }

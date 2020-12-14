@@ -3,23 +3,25 @@ services:
   mymongodb:
     image: mongo:latest
     container_name: "mymongodb"
-    ports:
-      - 27017:2701
     volumes:
-      - /data/db
+      - mydata:/data/db
     networks:
-      - my_network
+      - testnet
   springboot-mongodb:
-    image: springboot-mongodb:0.0.1-SNAPSHOT
-    container_name: "springboot-mongodb"
+    build:
+      context: ../../../.
+      dockerfile: Dockerfile
+    image: springboot:1.0.0
+    container_name: "springboot"
     ports:
-      - 8081:8081
+      - 8088:8088
     deploy:
       replicas: 3
     links:
       - mymongodb
     networks:
-      - my_network
+      - testnet
 networks:
-  my_network:
-    driver: overlay
+  testnet:
+volumes:
+  mydata:
